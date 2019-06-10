@@ -8,12 +8,12 @@ Use ITV_Cordoba
 --- Se comienza a crear las tablas auxiliares
 create table marcas_vehiculos
 (
-	id_marca int identity (1,1) NOT NULL, ---Se utiliza el comando "identity" para indicar que debe incrementar autom·ticamente y se indica que el PK no puede quedar vacÌo
+	id_marca int identity (1,1) NOT NULL, ---Se utiliza el comando "identity" para indicar que debe incrementar autom√°ticamente y se indica que el PK no puede quedar vac√≠o
 	nombre varchar (20)
 	constraint pk_id_marca primary key (id_marca) --- se determina el PK de la tabla
 )
 
-create table modelos_vehiculos --- Creamos la tabla de Modelos de vehÌculos
+create table modelos_vehiculos --- Creamos la tabla de Modelos de veh√≠culos
 (
 	id_modelo int identity (1,1) NOT NULL,
 	nombre varchar (20),
@@ -119,7 +119,7 @@ create table resultados
 	descripcion varchar (50)
 )
 
---- A continuaciÛn procedemos a crear las tablas maestras y sus referenias a las tablas auxiliares.
+--- A continuaci√≥n procedemos a crear las tablas maestras y sus referenias a las tablas auxiliares.
 
 create table personas
 (
@@ -170,7 +170,7 @@ create table vehiculos
 	num_chasis varchar (30),
 	num_motor varchar (30),
 	id_destino int,
-	aÒo_fabricacion datetime,
+	a√±o_fabricacion datetime,
 	id_tipo_combustible int,
 	constraint pk_dominio primary key (dominio),
 	constraint fk_id_modelo foreign key (id_modelo) references modelos_vehiculos (id_modelo),
@@ -223,11 +223,11 @@ create table detalle_informes
 	constraint fk_id_resultado foreign key (id_resultado) references resultados (id_resultado)
 )
 
----Comenzamos cargando las posibles marcas de los vehÌculos.
+---Comenzamos cargando las posibles marcas de los veh√≠culos.
 insert into marcas_vehiculos (nombre) 
 values ('Volskwagen'), ('Fiat'), ('Ford'), ('Renault'), ('Peugeot'), ('Toyota'), ('Citroen'), ('Audi'), ('Mercedes Benz'), ('Alfa Romeo'), ('Chevrolet'), ('Dodge'), ('Hyundai'), ('Jeep'), ('Kia')
 
----A continuaciÛn cargamos los modelos de vehÌculos.
+---A continuaci√≥n cargamos los modelos de veh√≠culos.
 insert into modelos_vehiculos (id_marca, nombre)
 values	('1', 'Gol'),
 		('1','Fox'),
@@ -252,13 +252,13 @@ values	('1', 'Gol'),
 		('7','C4')
 
 insert into tipos_vehiculos (descripcion)
-values ('Hatchback'), ('Sed·n'), ('CoupÈ'), ('SUV'), ('4x4'), ('Utilitario'), ('Ciclomotor')
+values ('Hatchback'), ('Sed√°n'), ('Coup√©'), ('SUV'), ('4x4'), ('Utilitario'), ('Ciclomotor')
 
 insert into destinos_vehiculos (descripcion)
 values ('Personal'), ('Comercial'), ('Protocolar'), ('Taxi'), ('Oficial'), ('Escolar'), ('Alquiler'), ('Autoescuela'), ('Remis')
 
 insert into tipos_combustible (descripcion)
-values ('Nafta'), ('Gasoil'), ('GNC'), ('ElÈctrico'), ('HÌbrido'), ('Biodiesel')
+values ('Nafta'), ('Gasoil'), ('GNC'), ('El√©ctrico'), ('H√≠brido'), ('Biodiesel')
 
 insert into generos (descripcion)
 values ('Masculino'), ('Femenino'), ('Otros'), ('No especifica')
@@ -267,58 +267,58 @@ insert into tipos_telefonos (descripcion)
 values ('Fijo Personal'), ('Celular Personal'), ('Fijo Laboral'), ('Celular Laboral'), ('Fax')
 
 insert into tipos_documentos (descripcion)
-values ('DNI'), ('Pasaporte'), ('Libreta CÌvica'), ('L. Enrolamiento'), ('C. de extranjerÌa')
+values ('DNI'), ('Pasaporte'), ('Libreta C√≠vica'), ('L. Enrolamiento'), ('C. de extranjer√≠a')
 
 insert into resultados (descripcion)
 values ('Aprobado'), ('No Aprobado'), ('Fallas Leves'), ('Provisorio')
 
 insert into tipos_controles (descripcion)
-values ('Mec·nico'), ('ElÈctrico'), ('Interior'), ('Exterior'), ('Otros')
+values ('Mec√°nico'), ('El√©ctrico'), ('Interior'), ('Exterior'), ('Otros')
 
 insert into controles (descripcion, id_tipo_control)
-values	('CarrocerÌa', 4),
+values	('Carrocer√≠a', 4),
 		('Chasis', 4),
 		('Alumbrado', 2), 
-		('SeÒalizaciÛn', 2), 
+		('Se√±alizaci√≥n', 2), 
 		('Emisiones', 5), 
 		('Frenos', 1), 
-		('DirecciÛn', 1), 
+		('Direcci√≥n', 1), 
 		('Ejes', 1), 
-		('Neum·ticos', 4), 
+		('Neum√°ticos', 4), 
 		('Suspensiones', 1), 
 		('Motor', 1), 
-		('TransmisiÛn', 1)
+		('Transmisi√≥n', 1)
 
 insert into ciudades (nombre)
-values	('CÛrdoba'),
+values	('C√≥rdoba'),
 		('Rio Cuarto'),
-		('Villa MarÌa'),
+		('Villa Mar√≠a'),
 		('Villa Carlos Paz'),
 		('San Francisco'),
 		('Alta Gracia'),
-		('RÌo Tercero'),
+		('R√≠o Tercero'),
 		('Bell Ville'),
 		('La Calera'),
 		('Villa Dolores'),
-		('RÌo Primero'),
-		('RÌo Segundo'),
+		('R√≠o Primero'),
+		('R√≠o Segundo'),
 		('Hernando'),
-		('Huinca RenancÛ'),
+		('Huinca Renanc√≥'),
 		('Mediolaza'),
 		('Villa Allende'),
-		('Sald·n'),
+		('Sald√°n'),
 		('Malvinas Argentinas'),
 		('Toledo'),
 		('Pilar')
 
 insert into barrios (nombre, id_ciudad)
-values	('Alta CÛrdoba', '1'),
+values	('Alta C√≥rdoba', '1'),
 		('Alberdi', '1'),
 		('Villa es Libertador', '1'),
-		('Nueva CÛrdoba', '1'),
+		('Nueva C√≥rdoba', '1'),
 		('Centro', '1'),
 		('San Vicente', '1'),
-		('JardÌn', '1'),
+		('Jard√≠n', '1'),
 		('Pizarro', '2'),
 		('Brasca', '2'),
 		('Banda Norte', '2'),
@@ -326,25 +326,25 @@ values	('Alta CÛrdoba', '1'),
 		('Carlos Pellegrini', '3'),
 		('San Justo', '3'),
 		('Los Eucaliptos', '4'),
-		('Miguel MuÒoz', '4'),
+		('Miguel Mu√±oz', '4'),
 		('Consolata', '5'),
 		('Corradi', '5'),
-		('Barrio C·mara', '6'),
+		('Barrio C√°mara', '6'),
 		('Barrio Sur', '6'),
 		('Castagno', '7'),
 		('Las Flores', '7')
 
 
 insert into especialidades
-values ('Mec·nico'), ('ElectrÛnico'), ('Carrocero'), ('Electricsta'), ('Supervisor')
+values ('Mec√°nico'), ('Electr√≥nico'), ('Carrocero'), ('Electricsta'), ('Supervisor')
 
 insert into tipos_clientes
 values ('Frecuente'), ('Inusual'), ('Registrado'), ('Propietario'), ('No Propietario')
 
 insert into lineas_inspeccion
-values ('LÌnea 1'), ('LÌnea 2'), ('LÌnea 3'), ('LÌnea 4'), ('LÌnea 5')
+values ('L√≠nea 1'), ('L√≠nea 2'), ('L√≠nea 3'), ('L√≠nea 4'), ('L√≠nea 5')
 
-insert into vehiculos (dominio, id_modelo, id_tipo_vehiculo, num_chasis, num_motor, id_destino, aÒo_fabricacion, id_tipo_combustible)
+insert into vehiculos (dominio, id_modelo, id_tipo_vehiculo, num_chasis, num_motor, id_destino, a√±o_fabricacion, id_tipo_combustible)
 values	('GTR343','1','1','S7YFMBQ4Z6PVXA9P','9277274934753436657463','1','2012','1'),
 		('CBA234','12','6','UCQKGR2R6QUV2PMB','6326664353865498327867','1','2006','1'),
 		('AB876JR','10','1','GA8AUY6BSK9SNACZ','6893582978572929743843','2','2018','1'),
@@ -367,19 +367,19 @@ values ('Fallas Leves'), ('Sin Fallas')
 insert into personas (id_tipo_doc, nro_documento, apellido, nombre, fecha_nacimiento, id_genero, calle, nro_calle, id_barrio, email)
 values	('1','32457345','Rodriguez','Carlos','1990-09-21','1','Colon','234','4','carlosrodriguez@gmail.com'),
 		('1','32712343','Toledo','Alexis','1987-07-12','1','Dean Funes','1234','2','alexistoledo@gmail.com'),
-		('1','12314343','Lucero','Leandro','1965-02-04','1','Rafael NuÒez','431','5','lealucero@gmail.com'),
+		('1','12314343','Lucero','Leandro','1965-02-04','1','Rafael Nu√±ez','431','5','lealucero@gmail.com'),
 		('1','34563563','Zuloaga','Federico','1999-01-06','1','Juan B Justo','648','11','fedezuloaga@gmail.com'),
-		('1','35446543','PÈrez','Luciano','1982-02-12','1','Duarte QuirÛs','976','6','luperez@hotmail.com'),
-		('2','AAE364754','LÛpez','Jimena','1978-05-10','2','VÈlez Sarsfield','365','12','jime563@yahoo.com.ar'),
-		('1','24323423','Gonz·lez','MarÌa','1980-10-21','2','9 de Julio','2354','3','mary_2324@hotmail.com'),
+		('1','35446543','P√©rez','Luciano','1982-02-12','1','Duarte Quir√≥s','976','6','luperez@hotmail.com'),
+		('2','AAE364754','L√≥pez','Jimena','1978-05-10','2','V√©lez Sarsfield','365','12','jime563@yahoo.com.ar'),
+		('1','24323423','Gonz√°lez','Mar√≠a','1980-10-21','2','9 de Julio','2354','3','mary_2324@hotmail.com'),
 		('1','12231223','Martinez','Eugenia','1977-09-27','2','Santa Rosa','3252','21','eugemartinez@hotmail.com'),
 		('1','23896768','Santoro','Ezequiel','1965-08-30','1','Sabattini','1554','2','e.santoro@frc.utn.edu.ar'),
-		('1','29873094','Fernandez','Lorena','1962-02-23','2','Fuerza AÈrea','8273','1','lore_cordoba@hotmail.com'),
+		('1','29873094','Fernandez','Lorena','1962-02-23','2','Fuerza A√©rea','8273','1','lore_cordoba@hotmail.com'),
 		('2','AFE236457','Gomez','Ricardo','1959-04-26','1','27 de Abril','2984','4','ricardo1980@live.com'),
-		('1','13472974','Perez','Eduardo','1991-06-16','1','Entre RÌos','1829','8','edu_elmejor@hotmail.com'),
-		('1','12234343','Hernandez','MarÌa','1972-06-11','2','Tucum·n','823','9','mariahernandez@gmail.com'),
-		('1','13432437','Torres','Ra˙l','1983-11-09','1','Chacabuco','2892','5','raultorres@hotmail.com'),
-		('1','18992728','Jimenez','Florencia','1970-04-02','2','ItuzaingÛ','1724','7','flor_jimenez@live.com')
+		('1','13472974','Perez','Eduardo','1991-06-16','1','Entre R√≠os','1829','8','edu_elmejor@hotmail.com'),
+		('1','12234343','Hernandez','Mar√≠a','1972-06-11','2','Tucum√°n','823','9','mariahernandez@gmail.com'),
+		('1','13432437','Torres','Ra√∫l','1983-11-09','1','Chacabuco','2892','5','raultorres@hotmail.com'),
+		('1','18992728','Jimenez','Florencia','1970-04-02','2','Ituzaing√≥','1724','7','flor_jimenez@live.com')
 
 insert into inspectores (id_persona, fecha_ingreso, id_especialidad, matricula)
 values	('1', '2019-04-16', '4', ''),
